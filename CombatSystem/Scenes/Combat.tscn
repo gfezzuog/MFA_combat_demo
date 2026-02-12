@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://ckwy1kii8q2hg"]
 
+[ext_resource type="Texture2D" uid="uid://c1guw8x0hrhog" path="res://CombatSystem/Assets/origbig.png" id="1_lio4f"]
+[ext_resource type="PackedScene" uid="uid://dqhpteoygc7e" path="res://CombatSystem/Enemies/Scenes/Angelic_Dinosaur.tscn" id="2_ur7xt"]
+
 [node name="Node2D" type="Node2D" unique_id=1639547783]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1663521373]
+scale = Vector2(0.8342014, 0.83256173)
+texture = ExtResource("1_lio4f")
+centered = false
+
+[node name="AngelicDinosaur" parent="." unique_id=2031918961 instance=ExtResource("2_ur7xt")]
+position = Vector2(480, 0)

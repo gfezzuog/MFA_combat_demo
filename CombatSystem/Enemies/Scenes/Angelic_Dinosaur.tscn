@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dqhpteoygc7e"]
+
+[ext_resource type="Texture2D" path="res://CombatSystem/Enemies/Assets/Dinosauro Scontornated.png" id="1_bvptc"]
+[ext_resource type="Texture2D" uid="uid://buaj2e2eqhigs" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_torso.png" id="1_qof44"]
+[ext_resource type="Texture2D" uid="uid://dvoyv4ngxipkj" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_testa.png" id="2_ftbsf"]
+[ext_resource type="Texture2D" uid="uid://domfrhhokngd" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_gamba_destra.png" id="3_5s2f3"]
+[ext_resource type="Texture2D" uid="uid://d0urw4xbuemrx" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_gamba_sinistra.png" id="4_wao02"]
+[ext_resource type="Texture2D" uid="uid://0e3q1rhkcqbj" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_braccia_destra.png" id="5_0r82r"]
+[ext_resource type="Texture2D" uid="uid://dn110fffcrw2x" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_braccia_sinistra.png" id="6_yfiow"]
+
+[node name="AngelicDinosaur" type="Node2D" unique_id=2031918961]
+
+[node name="DS_torso" type="Sprite2D" parent="." unique_id=897644559]
+scale = Vector2(0.31898516, 0.35846773)
+texture = ExtResource("1_qof44")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=943919338]
+visible = false
+scale = Vector2(0.31898516, 0.35846773)
+texture = ExtResource("1_bvptc")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1766578230]
+position = Vector2(-1, 0)
+scale = Vector2(0.31898516, 0.35846773)
+texture = ExtResource("2_ftbsf")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1249307547]
+scale = Vector2(0.31898516, 0.35846773)
+texture = ExtResource("3_5s2f3")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=540770468]
+scale = Vector2(0.31898516, 0.35846773)
+texture = ExtResource("4_wao02")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1023279508]
+scale = Vector2(0.31898516, 0.35846773)
+texture = ExtResource("5_0r82r")
+centered = false
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=822646675]
+scale = Vector2(0.31898516, 0.35846773)
+texture = ExtResource("6_yfiow")
+centered = false
