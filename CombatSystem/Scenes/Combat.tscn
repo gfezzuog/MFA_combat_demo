@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://ckwy1kii8q2hg"]
 
 [ext_resource type="Texture2D" uid="uid://c1guw8x0hrhog" path="res://CombatSystem/Assets/origbig.png" id="1_lio4f"]
+[ext_resource type="Script" uid="uid://2i4g4aiohfm7" path="res://CombatSystem/Scripts/combat.gd" id="1_ur7xt"]
 [ext_resource type="PackedScene" uid="uid://dqhpteoygc7e" path="res://CombatSystem/Enemies/Scenes/Angelic_Dinosaur.tscn" id="2_ur7xt"]
+[ext_resource type="Script" uid="uid://cwtnh65gtgnho" path="res://CombatSystem/Enemies/Scripts/Enemy_Base.gd" id="4_f7c1u"]
 
 [node name="Node2D" type="Node2D" unique_id=1639547783]
+script = ExtResource("1_ur7xt")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1663521373]
 scale = Vector2(0.8342014, 0.83256173)
@@ -12,3 +15,48 @@ centered = false
 
 [node name="AngelicDinosaur" parent="." unique_id=2031918961 instance=ExtResource("2_ur7xt")]
 position = Vector2(480, 0)
+script = ExtResource("4_f7c1u")
+
+[node name="fire" type="Button" parent="." unique_id=1080760704]
+offset_left = 111.0
+offset_top = 851.0
+offset_right = 175.0
+offset_bottom = 882.0
+text = "FUOCO
+"
+
+[node name="water" type="Button" parent="." unique_id=290367320]
+offset_left = 233.0
+offset_top = 852.0
+offset_right = 297.0
+offset_bottom = 883.0
+text = "ACQUA"
+
+[node name="wind" type="Button" parent="." unique_id=1535512267]
+offset_left = 492.0
+offset_top = 855.0
+offset_right = 556.0
+offset_bottom = 886.0
+text = "VENTO"
+
+[node name="earth" type="Button" parent="." unique_id=792239849]
+offset_left = 368.0
+offset_top = 852.0
+offset_right = 432.0
+offset_bottom = 883.0
+text = "TERRA"
+
+[node name="holy" type="Button" parent="." unique_id=17783187]
+offset_left = 585.0
+offset_top = 859.0
+offset_right = 649.0
+offset_bottom = 890.0
+text = "SACRO"
+
+[node name="profane" type="Button" parent="." unique_id=1216762724]
+offset_left = 690.0
+offset_top = 864.0
+offset_right = 775.0
+offset_bottom = 895.0
+text = "PROFANO
+"
