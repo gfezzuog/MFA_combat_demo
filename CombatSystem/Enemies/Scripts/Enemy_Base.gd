@@ -10,6 +10,7 @@ class_name enemy_base
 @onready var win : int
 @onready var prf : int
 @onready var hly : int
+@onready var spd : int
 
 @onready var elem : int
 @onready var sts : Array = []
