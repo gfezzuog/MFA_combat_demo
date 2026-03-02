@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c1guw8x0hrhog" path="res://CombatSystem/Assets/origbig.png" id="1_lio4f"]
 [ext_resource type="Script" uid="uid://2i4g4aiohfm7" path="res://CombatSystem/Scripts/combat.gd" id="1_ur7xt"]
 [ext_resource type="PackedScene" uid="uid://dqhpteoygc7e" path="res://CombatSystem/Enemies/Scenes/Angelic_Dinosaur.tscn" id="2_ur7xt"]
-[ext_resource type="PackedScene" uid="uid://cq1o6iv17uy6u" path="res://CombatSystem/Characters/Scenes/Character1.tscn" id="4_f7c1u"]
-[ext_resource type="Script" uid="uid://xemcbnqc8r1g" path="res://CombatSystem/Scripts/Turn_Manager.gd" id="4_f7c1u"]
+[ext_resource type="Script" path="res://CombatSystem/Scripts/Turn_Manager.gd" id="4_f7c1u"]
 
 [node name="Node2D" type="Node2D" unique_id=1639547783]
 script = ExtResource("1_ur7xt")
@@ -66,14 +65,14 @@ text = "PROFANO
 
 [node name="Party" type="Node" parent="." unique_id=1274868404]
 
-[node name="Character1" parent="Party" unique_id=2098410848 instance=ExtResource("4_f7c1u")]
+[node name="Character1" parent="Party" unique_id=2098410848]
 position = Vector2(278, 803)
 
-[node name="Character2" parent="Party" unique_id=1735276437 instance=ExtResource("4_f7c1u")]
+[node name="Character2" parent="Party" unique_id=1735276437]
 position = Vector2(704, 827)
 
-[node name="Character3" parent="Party" unique_id=1517914584 instance=ExtResource("4_f7c1u")]
+[node name="Character3" parent="Party" unique_id=1517914584]
 position = Vector2(1325, 853)
 
-[node name="Character4" parent="Party" unique_id=1901771873 instance=ExtResource("4_f7c1u")]
+[node name="Character4" parent="Party" unique_id=1901771873]
 position = Vector2(1651, 862)
