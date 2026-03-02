@@ -1,6 +1,7 @@
 extends Node
 class_name enemy_base
 
+@export var character_name: String
 @export var hp : int
 @export var atk : int
 @export var def : int
@@ -17,16 +18,19 @@ class_name enemy_base
 enum STATUS {STEAM = 3, INCINERATION = 5, FLOOD = 6, FIRESTORM = 9, FREEZE = 10, SANDSTORM = 12, APOCRYPHAL = 48}
 enum ELEMENTS {FIRE = 1, WATER = 2, EARTH = 4, WIND = 8, PROFANE = 16, HOLY = 32}
 
-@onready var sprite := $DS_torso
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+func is_alive() -> bool:
+	if hp > 0:
+		return true
+	return false
+
 func _process(_delta):
-	if Input.is_action_pressed("placeholder1"):
+	if Input.is_action_just_pressed("placeholder1"):
 		activate_highlight()
-	if Input.is_action_pressed("placeholder2"):
+	if Input.is_action_just_pressed("placeholder2"):
 		deactivate_highlight()
 
 func apply_element(new_element : ELEMENTS) -> void:
@@ -71,8 +75,8 @@ func apply_status() -> void:
 
 func activate_highlight():
 	var tween = create_tween()
-	tween.tween_property(sprite.material, "shader_parameter/highlight_strength", 1.0, 0.15)
+	tween.tween_property(self.material, "shader_parameter/highlight_strength", 1.0, 0.15)
 
 func deactivate_highlight():
 	var tween = create_tween()
-	tween.tween_property(sprite.material, "shader_parameter/highlight_strength", 0.0, 0.15)
+	tween.tween_property(self.material, "shader_parameter/highlight_strength", 0.0, 0.15)
