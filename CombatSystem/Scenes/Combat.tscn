@@ -3,9 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://c1guw8x0hrhog" path="res://CombatSystem/Assets/origbig.png" id="1_lio4f"]
 [ext_resource type="Script" uid="uid://2i4g4aiohfm7" path="res://CombatSystem/Scripts/combat.gd" id="1_ur7xt"]
 [ext_resource type="PackedScene" uid="uid://dqhpteoygc7e" path="res://CombatSystem/Enemies/Scenes/Angelic_Dinosaur.tscn" id="2_ur7xt"]
+[ext_resource type="Script" uid="uid://xemcbnqc8r1g" path="res://CombatSystem/Scripts/Turn_Manager.gd" id="4_f7c1u"]
 
 [node name="Node2D" type="Node2D" unique_id=1639547783]
 script = ExtResource("1_ur7xt")
+
+[node name="TurnManager" type="Node" parent="." unique_id=1281252142]
+script = ExtResource("4_f7c1u")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1663521373]
 scale = Vector2(0.8342014, 0.83256173)
