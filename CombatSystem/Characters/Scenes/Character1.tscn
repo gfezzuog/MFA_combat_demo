@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cq1o6iv17uy6u"]
+
+[ext_resource type="Texture2D" uid="uid://bju3c421sp8k7" path="res://CombatSystem/Characters/Assets/16x32 All Animations.png" id="1_j64jb"]
+[ext_resource type="Script" uid="uid://dba6gciilles7" path="res://CombatSystem/Characters/Scripts/Character_1.gd" id="1_t6h7c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6h7c"]
+atlas = ExtResource("1_j64jb")
+region = Rect2(80, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsx4a"]
+atlas = ExtResource("1_j64jb")
+region = Rect2(96, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mh20"]
+atlas = ExtResource("1_j64jb")
+region = Rect2(112, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agn02"]
+atlas = ExtResource("1_j64jb")
+region = Rect2(128, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oe8e"]
+atlas = ExtResource("1_j64jb")
+region = Rect2(144, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbr68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6h7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsx4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mh20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agn02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oe8e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Character1" type="Node2D" unique_id=2098410848]
+script = ExtResource("1_t6h7c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=906518246]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_xbr68")

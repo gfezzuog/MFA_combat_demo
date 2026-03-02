@@ -1,16 +1,16 @@
 extends Node
 class_name enemy_base
 
-@onready var hp : int
-@onready var atk : int
-@onready var def : int
-@onready var wtr : int
-@onready var fir : int
-@onready var ert : int
-@onready var win : int
-@onready var prf : int
-@onready var hly : int
-@onready var spd : int
+@export var hp : int
+@export var atk : int
+@export var def : int
+@export var wtr : int
+@export var fir : int
+@export var ert : int
+@export var win : int
+@export var prf : int
+@export var hly : int
+@export var spd : int
 
 @onready var elem : int
 @onready var sts : Array = []
