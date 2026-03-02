@@ -4,6 +4,34 @@
 [ext_resource type="Script" uid="uid://2i4g4aiohfm7" path="res://CombatSystem/Scripts/combat.gd" id="1_ur7xt"]
 [ext_resource type="PackedScene" uid="uid://dqhpteoygc7e" path="res://CombatSystem/Enemies/Scenes/Angelic_Dinosaur.tscn" id="2_ur7xt"]
 [ext_resource type="Script" path="res://CombatSystem/Scripts/Turn_Manager.gd" id="4_f7c1u"]
+[ext_resource type="Script" uid="uid://xemcbnqc8r1g" path="res://CombatSystem/Scripts/Turn_Manager.gd" id="4_f7c1u"]
+[ext_resource type="Shader" uid="uid://byp4fwrquuamv" path="res://CombatSystem/Enemies/Shaders/highlight.gdshader" id="5_34e35"]
+[ext_resource type="PackedScene" uid="uid://cq1o6iv17uy6u" path="res://CombatSystem/Characters/Scenes/Character1.tscn" id="5_vww53"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lr6co"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sipja"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmjkh"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udm8p"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5yr0e"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
 
 [node name="Node2D" type="Node2D" unique_id=1639547783]
 script = ExtResource("1_ur7xt")
@@ -18,6 +46,37 @@ centered = false
 
 [node name="AngelicDinosaur" parent="." unique_id=2031918961 instance=ExtResource("2_ur7xt")]
 position = Vector2(480, 0)
+
+[node name="DS_torso" parent="AngelicDinosaur" index="0" unique_id=897644559]
+character_name = "torso"
+hp = 100
+spd = 5
+
+[node name="DS_head" parent="AngelicDinosaur" index="1" unique_id=1766578230]
+material = SubResource("ShaderMaterial_lr6co")
+character_name = "testo"
+hp = 50
+spd = 6
+
+[node name="DS_rleg" parent="AngelicDinosaur" index="2" unique_id=1249307547]
+material = SubResource("ShaderMaterial_sipja")
+character_name = "rlegogo"
+hp = 50
+
+[node name="DS_lleg" parent="AngelicDinosaur" index="3" unique_id=540770468]
+material = SubResource("ShaderMaterial_dmjkh")
+character_name = "llegogo"
+hp = 50
+
+[node name="DS_rarm" parent="AngelicDinosaur" index="4" unique_id=1023279508]
+material = SubResource("ShaderMaterial_udm8p")
+character_name = "rarmo"
+hp = 50
+
+[node name="DS_larm" parent="AngelicDinosaur" index="5" unique_id=822646675]
+material = SubResource("ShaderMaterial_5yr0e")
+character_name = "larmo"
+hp = 50
 
 [node name="fire" type="Button" parent="." unique_id=1080760704]
 offset_left = 1736.0
@@ -76,3 +135,28 @@ position = Vector2(1325, 853)
 
 [node name="Character4" parent="Party" unique_id=1901771873]
 position = Vector2(1651, 862)
+[node name="Character1" parent="Party" unique_id=2098410848 instance=ExtResource("5_vww53")]
+position = Vector2(360, 900)
+character_name = "Gigi"
+hp = 50
+spd = 1
+
+[node name="Character2" parent="Party" unique_id=881206590 instance=ExtResource("5_vww53")]
+position = Vector2(710, 902)
+character_name = "igig"
+hp = 50
+spd = 2
+
+[node name="Character3" parent="Party" unique_id=785124136 instance=ExtResource("5_vww53")]
+position = Vector2(1087, 904)
+character_name = "giugo"
+hp = 50
+spd = 3
+
+[node name="Character4" parent="Party" unique_id=402977209 instance=ExtResource("5_vww53")]
+position = Vector2(1446, 899)
+character_name = "GIOELE"
+hp = 50
+spd = 4
+
+[editable path="AngelicDinosaur"]

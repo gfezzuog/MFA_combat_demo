@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dqhpteoygc7e"]
 
-[ext_resource type="Script" uid="uid://cwtnh65gtgnho" path="res://CombatSystem/Enemies/Scripts/Enemy_Base.gd" id="1_ftbsf"]
 [ext_resource type="Texture2D" uid="uid://buaj2e2eqhigs" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_torso.png" id="1_qof44"]
 [ext_resource type="Shader" uid="uid://byp4fwrquuamv" path="res://CombatSystem/Enemies/Shaders/highlight.gdshader" id="2_5s2f3"]
 [ext_resource type="Texture2D" uid="uid://dvoyv4ngxipkj" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_testa.png" id="2_ftbsf"]
@@ -8,7 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://domfrhhokngd" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_gamba_destra.png" id="3_5s2f3"]
 [ext_resource type="Texture2D" uid="uid://d0urw4xbuemrx" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_gamba_sinistra.png" id="4_wao02"]
 [ext_resource type="Texture2D" uid="uid://0e3q1rhkcqbj" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_braccia_destra.png" id="5_0r82r"]
+[ext_resource type="Script" uid="uid://ctam0wte1thk8" path="res://CombatSystem/Enemies/Scripts/AngelicDinosaur/ds_head.gd" id="5_8cwtj"]
 [ext_resource type="Texture2D" uid="uid://dn110fffcrw2x" path="res://CombatSystem/Enemies/Assets/DinosaurScontornated/DS_braccia_sinistra.png" id="6_yfiow"]
+[ext_resource type="Script" uid="uid://ctkfo8sumxonm" path="res://CombatSystem/Enemies/Scripts/AngelicDinosaur/ds_rleg.gd" id="7_n31tl"]
+[ext_resource type="Script" uid="uid://chq2wr8om3x1e" path="res://CombatSystem/Enemies/Scripts/AngelicDinosaur/ds_lleg.gd" id="9_uqoog"]
+[ext_resource type="Script" uid="uid://cl7okb2waw2jx" path="res://CombatSystem/Enemies/Scripts/AngelicDinosaur/ds_rarm.gd" id="11_wyhma"]
+[ext_resource type="Script" uid="uid://jxwr2nla4hom" path="res://CombatSystem/Enemies/Scripts/AngelicDinosaur/ds_larm.gd" id="13_e0nwt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wao02"]
 shader = ExtResource("2_5s2f3")
@@ -16,7 +20,6 @@ shader_parameter/highlight_strength = 0.0
 shader_parameter/blink_speed = 4.0
 
 [node name="AngelicDinosaur" type="Node2D" unique_id=2031918961]
-script = ExtResource("1_ftbsf")
 
 [node name="DS_torso" type="Sprite2D" parent="." unique_id=897644559]
 material = SubResource("ShaderMaterial_wao02")
@@ -24,29 +27,35 @@ scale = Vector2(0.31898516, 0.35846773)
 texture = ExtResource("1_qof44")
 centered = false
 script = ExtResource("2_qof44")
+spd = 1
 
 [node name="DS_head" type="Sprite2D" parent="." unique_id=1766578230]
 position = Vector2(-1, 0)
 scale = Vector2(0.31898516, 0.35846773)
 texture = ExtResource("2_ftbsf")
 centered = false
+script = ExtResource("5_8cwtj")
 
 [node name="DS_rleg" type="Sprite2D" parent="." unique_id=1249307547]
 scale = Vector2(0.31898516, 0.35846773)
 texture = ExtResource("3_5s2f3")
 centered = false
+script = ExtResource("7_n31tl")
 
 [node name="DS_lleg" type="Sprite2D" parent="." unique_id=540770468]
 scale = Vector2(0.31898516, 0.35846773)
 texture = ExtResource("4_wao02")
 centered = false
+script = ExtResource("9_uqoog")
 
 [node name="DS_rarm" type="Sprite2D" parent="." unique_id=1023279508]
 scale = Vector2(0.31898516, 0.35846773)
 texture = ExtResource("5_0r82r")
 centered = false
+script = ExtResource("11_wyhma")
 
 [node name="DS_larm" type="Sprite2D" parent="." unique_id=822646675]
 scale = Vector2(0.31898516, 0.35846773)
 texture = ExtResource("6_yfiow")
 centered = false
+script = ExtResource("13_e0nwt")
