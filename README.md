@@ -9,7 +9,7 @@
 ---
 
 <details>
-<summary>## Struttura folders</summary>
+<summary>Struttura folders - click to open</summary>
 
 ```
 MFA_combat_demo/
