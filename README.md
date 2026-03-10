@@ -1,9 +1,9 @@
 # Documentazione
 
-- [Combat.tscn](#-combat.tscn)
-- [Combat.gd](#-combat.gd)
-- [Action_Menu.tscn](#-action_menu.tscn)
-- [Turn_Manager.gd](#-turn_manager.gd)
+- [Combat.tscn](#combattscn)
+- [Combat.gd](#combatgd)
+- [Action_Menu.tscn](#action_menutscn)
+- [Turn_Manager.gd](#turn_managergd)
 
 ---
 
