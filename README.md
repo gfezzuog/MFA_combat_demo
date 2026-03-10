@@ -29,7 +29,7 @@ Combat
 │   ├── Character1              # Character1, Character2, etc
 │   ├── ...
 └── ActionMenu                  # Scena ActionMenu
-
+```
 
 ## combat.gd
 
