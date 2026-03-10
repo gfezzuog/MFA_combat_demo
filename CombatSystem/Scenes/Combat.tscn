@@ -286,9 +286,9 @@ autowrap_trim_flags = 0
 justification_flags = 0
 
 [node name="ActionMenu" parent="." unique_id=529131527 instance=ExtResource("7_sipja")]
-offset_left = 51.0
-offset_top = 273.0
-offset_right = 111.0
-offset_bottom = 333.0
+offset_left = 60.0
+offset_top = 278.0
+offset_right = 120.0
+offset_bottom = 338.0
 
 [editable path="AngelicDinosaur"]

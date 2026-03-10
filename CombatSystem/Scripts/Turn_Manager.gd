@@ -40,9 +40,7 @@ func next_turn():
 			build_turn_queue()
 	
 	while turn_queue.size() > 0:
-		
 		current_character = turn_queue.pop_front()
-		
 		if current_character.is_alive():
 			break
 

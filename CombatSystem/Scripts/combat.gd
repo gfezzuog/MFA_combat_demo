@@ -37,6 +37,7 @@ func _ready():
 	turn_manager.enemy_turn_started.connect(_on_enemy_turn)
 	
 	turn_manager.start_combat(party_nodes, enemy_nodes)
+	
 
 func _process(_delta) -> void:
 	status_label_player1.text = player1.character_name + "\nHP: " + str(player1.hp) + "/" + str(player1.max_hp)
@@ -47,10 +48,7 @@ func _process(_delta) -> void:
 func _on_player_turn(character):
 	print("Turno player: ", character.character_name)
 	turn_status.text = "Turno player: " + character.character_name
-	player_turn(character)
-	await next_turn_button.pressed
-	action_menu.hide_menu()
-	turn_manager.end_turn()
+	await player_turn(character)
 
 func _on_enemy_turn(character):
 	print("Turno enemy: ", character.character_name)
@@ -61,6 +59,7 @@ func _on_enemy_turn(character):
 	
 func player_turn(character):
 	action_menu.show_menu()
+	
 	while (true):
 		var action = await action_menu.action_selected
 		match action:
@@ -83,3 +82,4 @@ func player_turn(character):
 				action_menu.hide_menu()
 				await get_tree().create_timer(1.0).timeout
 				turn_manager.end_turn()
+				return
