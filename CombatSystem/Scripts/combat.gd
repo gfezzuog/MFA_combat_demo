@@ -49,20 +49,20 @@ func _on_player_turn(character):
 	turn_status.text = "Turno player: " + character.character_name
 	player_turn(character)
 	await next_turn_button.pressed
+	action_menu.hide_menu()
 	turn_manager.end_turn()
 
 func _on_enemy_turn(character):
 	print("Turno enemy: ", character.character_name)
 	turn_status.text = "Turno enemy: " + character.character_name
 	await next_turn_button.pressed
+	action_menu.hide_menu()
 	turn_manager.end_turn()
 	
 func player_turn(character):
 	action_menu.show_menu()
 	while (true):
 		var action = await action_menu.action_selected
-		print("azione scelta:", action)
-
 		match action:
 			"actions":
 				print(character.character_name + " actions")

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://xemcbnqc8r1g" path="res://CombatSystem/Scripts/Turn_Manager.gd" id="4_f7c1u"]
 [ext_resource type="Shader" uid="uid://byp4fwrquuamv" path="res://CombatSystem/Enemies/Shaders/highlight.gdshader" id="5_34e35"]
 [ext_resource type="PackedScene" uid="uid://cq1o6iv17uy6u" path="res://CombatSystem/Characters/Scenes/Character1.tscn" id="5_vww53"]
-[ext_resource type="Script" uid="uid://dkpnh4t8cr3gx" path="res://CombatSystem/Scripts/Action_Menu.gd" id="7_lr6co"]
+[ext_resource type="PackedScene" uid="uid://dj4gfeftjf042" path="res://CombatSystem/Scenes/Action_Menu.tscn" id="7_sipja"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34e35"]
 bg_color = Color(0.31764707, 0.31764707, 0.31764707, 0.7490196)
@@ -61,16 +61,7 @@ corner_radius_bottom_left = 10
 [sub_resource type="LabelSettings" id="LabelSettings_sipja"]
 font_size = 35
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sipja"]
-bg_color = Color(0.6, 0.6, 0.6, 0.6862745)
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-border_color = Color(0.6, 0.6, 0.6, 0.6862745)
-border_blend = true
-
-[node name="Node" type="Node" unique_id=1302296181]
+[node name="Combat" type="Node" unique_id=1302296181]
 script = ExtResource("1_ur7xt")
 
 [node name="TurnManager" type="Node" parent="." unique_id=1281252142]
@@ -184,7 +175,7 @@ text = "Next Turn"
 position = Vector2(360, 869)
 character_name = "player 1"
 hp = 100
-spd = 2
+spd = 1
 
 [node name="PlayerStatus1" type="Label" parent="Party/Character1" unique_id=2058434816]
 anchors_preset = 7
@@ -294,54 +285,10 @@ autowrap_mode = 2
 autowrap_trim_flags = 0
 justification_flags = 0
 
-[node name="ActionMenu" type="Control" parent="." unique_id=1444323179]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 40.0
-offset_top = 305.0
-offset_right = 100.0
-offset_bottom = 365.0
-script = ExtResource("7_lr6co")
-
-[node name="PanelContainer" type="PanelContainer" parent="ActionMenu" unique_id=754867327]
-layout_mode = 0
-offset_left = -12.0
-offset_top = 11.0
-offset_right = 296.0
-offset_bottom = 411.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_sipja")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ActionMenu/PanelContainer" unique_id=1576433192]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Actions" type="Button" parent="ActionMenu/PanelContainer/VBoxContainer" unique_id=1917008200]
-layout_mode = 2
-theme_override_font_sizes/font_size = 55
-text = "Actions
-"
-
-[node name="Items" type="Button" parent="ActionMenu/PanelContainer/VBoxContainer" unique_id=342668070]
-layout_mode = 2
-theme_override_font_sizes/font_size = 55
-text = "Items
-"
-
-[node name="Talk" type="Button" parent="ActionMenu/PanelContainer/VBoxContainer" unique_id=618333586]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 55
-text = "Talk"
-
-[node name="Pass" type="Button" parent="ActionMenu/PanelContainer/VBoxContainer" unique_id=1262432638]
-layout_mode = 2
-theme_override_font_sizes/font_size = 55
-text = "Pass
-"
-
-[connection signal="pressed" from="ActionMenu/PanelContainer/VBoxContainer/Actions" to="ActionMenu" method="_on_actions_pressed"]
-[connection signal="pressed" from="ActionMenu/PanelContainer/VBoxContainer/Items" to="ActionMenu" method="_on_items_pressed"]
-[connection signal="pressed" from="ActionMenu/PanelContainer/VBoxContainer/Talk" to="ActionMenu" method="_on_talk_pressed"]
-[connection signal="pressed" from="ActionMenu/PanelContainer/VBoxContainer/Pass" to="ActionMenu" method="_on_pass_pressed"]
+[node name="ActionMenu" parent="." unique_id=529131527 instance=ExtResource("7_sipja")]
+offset_left = 51.0
+offset_top = 273.0
+offset_right = 111.0
+offset_bottom = 333.0
 
 [editable path="AngelicDinosaur"]
