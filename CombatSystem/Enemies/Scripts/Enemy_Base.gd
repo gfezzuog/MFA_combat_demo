@@ -18,10 +18,6 @@ class_name enemy_base
 enum STATUS {STEAM = 3, INCINERATION = 5, FLOOD = 6, FIRESTORM = 9, FREEZE = 10, SANDSTORM = 12, APOCRYPHAL = 48}
 enum ELEMENTS {FIRE = 1, WATER = 2, EARTH = 4, WIND = 8, PROFANE = 16, HOLY = 32}
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 func is_alive() -> bool:
 	if hp > 0:
 		return true

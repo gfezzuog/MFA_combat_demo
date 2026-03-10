@@ -10,9 +10,6 @@ class_name Character_Base
 @export var mdef : int
 @export var spd: int
 
-func _ready():
-	hp = max_hp
-
 func is_alive() -> bool:
 	if hp > 0:
 		return true
