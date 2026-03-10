@@ -1,6 +1,15 @@
 # Documentazione
 
-## Struttura folders
+## Indice
+
+- [Combat.tscn](#combattscn) - Scena principale del combattimento
+- [Action_Menu.tscn](#action_menutscn) - Menu azioni giocatore
+- [Turn_Manager.gd](#turn_managergd) - Gestore turni
+
+---
+
+<details>
+<summary>## Struttura folders</summary>
 
 ```
 MFA_combat_demo/
@@ -49,12 +58,7 @@ MFA_combat_demo/
         ├── Turn_Manager.gd            # Gestore turni
         └── Action_Menu.gd             # Controller menu azioni
 ```
-
-## Indice
-
-- [Combat.tscn](#combattscn) - Scena principale del combattimento
-- [Action_Menu.tscn](#action_menutscn) - Menu azioni giocatore
-- [Turn_Manager.gd](#turn_managergd) - Gestore turni
+</details>
 
 ---
 
