@@ -5,11 +5,8 @@ Sistema di combattimento a turni per Godot 4.x che gestisce party, nemici, turni
 ## Indice
 
 - [Combat.tscn](#combattscn) - Scena principale del combattimento
-- [Combat.gd](#combatgd) - Controller del combattimento
-- [Turn_Manager.gd](#turn_managergd) - Gestore turni
 - [Action_Menu.tscn](#action_menutscn) - Menu azioni giocatore
-- [Character_Base.gd](#character_basegd) - Classe base personaggi
-- [Enemy_Base.gd](#enemy_basegd) - Classe base nemici
+- [Turn_Manager.gd](#turn_managergd) - Gestore turni
 
 ---
 
@@ -17,7 +14,7 @@ Sistema di combattimento a turni per Godot 4.x che gestisce party, nemici, turni
 
 Scena principale che contiene tutti gli elementi del sistema di combattimento: personaggi, nemici, UI e gestione turni.
 
-### Struttura della scena:
+**Struttura:**
 
 ```
 Combat
@@ -40,11 +37,13 @@ Combat
 
 ---
 
+## Combat.gd
+
 Controller principale del combattimento che coordina Turn Manager, personaggi, nemici e interfaccia utente.
 
-### Variabili principali:
-- `turn_manager`: riferimento al nodo TurnManager
-- `_ready()`**
+### Funzioni principali:
+
+**`_ready()`**
 - Raccoglie tutti i nodi del party tramite `$Party.get_children()`
 - Raccoglie tutti i nodi nemici tramite `$AngelicDinosaur.get_children()`
 - Connette i segnali `player_turn_started` e `enemy_turn_started` del Turn Manager
@@ -54,38 +53,24 @@ Controller principale del combattimento che coordina Turn Manager, personaggi, n
 - Aggiorna costantemente i label dei personaggi con nome e HP corrente/massimo
 - Chiamata ogni frame per mantenere UI sincronizzata
 
-**`_on_player_turn(character)`** *(async)*
+**`_on_player_turn(character)`**
 - Callback chiamato dal segnale `player_turn_started` del Turn Manager
 - Riceve come parametro il personaggio che deve agire
 - Aggiorna `turn_status` con il nome del personaggio corrente
 - Attende il completamento di `player_turn(character)` usando `await`
 - Al termine nasconde il menu e chiama `turn_manager.end_turn()`
 
-**`_on_enemy_turn(character)`** *(async)*
+**`_on_enemy_turn(character)`**
 - Callback chiamato dal segnale `enemy_turn_started` del Turn Manager
 - Aggiorna `turn_status` con il nome del nemico corrente
 - Attende pressione di `next_turn_button` (placeholder per AI nemico)
 - Nasconde il menu e avanza al turno successivo
 
-**`player_turn(character)`** *(async)*
-- MTurn_Manager.gd
-
-Script che gestisce l'ordine dei turni e il flusso del combattimento basato sulla velocità (spd) delle unità.
-
-### Variabiliolder per utilizzo oggetti
-  - **talk**: placeholder per interazione dialogo (sistema Persona-like)
-  - **pass**: salta il turno, nasconde menu, attende 1 secondo e termina il turno
-- Quando un'azione viene selezionata, aggiorna `turn_status` con la scelta
-
-**_on_enemy_turn**:
-Riceve il segnale da Turn Manager.
-Per ora semplicemente aggiorna TurnStatus e attende la pressione del pulsante NextTurn.
-
-**player_turn**:
-Mostra action_menu.
-Entra in ciclo while true.
-Attende la selezione di un'azione, questo avviene tramite segnali dentro Action_Menu.gd e la scena ActionMenu.
-Presa la scelta stampa nel TurnStatus e basta, quando si sceglie pass, termina il turno.
+**`player_turn(character)`**:
+- Mostra action_menu.
+- Entra in ciclo while true.
+- Attende la selezione di un'azione, tramite segnali da Action_Menu.gd e la scena ActionMenu.
+- Presa la scelta stampa nel TurnStatus, quando si sceglie pass, termina il turno.
 
 ---
 
@@ -97,7 +82,11 @@ Tramite action_selected.emit() manda l'azione scelta a Combat dentro la funzione
 - `party`: Array contenente tutti i personaggi del giocatore
 - `enemies`: Array contenente tutti i nemici
 - `turn_queue`: Array che mantiene l'ordine dei turni, ordinato per velocità decrescente
-- `current_(Control)
+
+**Struttura:**
+
+```
+ActionMenu
 └── PanelContainer              # Panel per lo styling del menu
 	└── VBoxContainer           # Container verticale per i pulsanti
 		├── Actions             # Bottone azioni offensive/difensive
@@ -106,7 +95,7 @@ Tramite action_selected.emit() manda l'azione scelta a Combat dentro la funzione
 		└── Pass                # Bottone per saltare il turno
 ```
 
-### Action_Menu.gd
+## Action_Menu.gd
 
 Script semplice che gestisce la visibilità del menu e emette segnali quando i bottoni vengono premuti.
 
@@ -124,102 +113,16 @@ Script semplice che gestisce la visibilità del menu e emette segnali quando i b
 
 ---
 
-## Character_Base.gd
-
-Classe base per i personaggi del party. Contiene le statistiche fondamentali.
-
-### Proprietà esportate:
-- `character_name`: String - nome del personaggio
-- `max_hp`: int - HP massimi (default: 100)
-- `hp`: int - HP correnti
-- `atk`: int - attacco fisico
-- `matk`: int - attacco magico
-- `def`: int - difesa fisica
-- `mdef`: int - difesa magica
-- `spd`: int - velocità (determina ordine turni)
-
-### Funzioni:
-- `is_alive()` → bool: ritorna `true` se `hp > 0`, altrimenti `false`
-
----
-
-## Enemy_Base.gd
-
-Classe base per i nemici con sistema di elementi e status effect basato su bitmasking.
-
-### Proprietà esportate (stats base):
-- `character_name`: String - nome del nemico
-- `hp`, `atk`, `def`, `spd`: int - statistiche combat standard
-- `wtr`, `fir`, `ert`, `win`, `prf`, `hly`: int - resistenze/affinità elementali (acqua, fuoco, terra, vento, profano, sacro)
-
-### Sistema elementi (bitmasking):
-Gli elementi usano potenze di 2 per permettere combinazioni:
-```gdscript
-enum ELEMENTS {
-    FIRE = 1,      # 2^0
-    WATER = 2,     # 2^1
-    EARTH = 4,     # 2^2
-    WIND = 8,      # 2^3
-    PROFANE = 16,  # 2^4
-    HOLY = 32      # 2^5
-}
-```
-
-### Sistema status:
-Gli status sono combinazioni di elementi:
-```gdscript
-enum STATUS {
-    STEAM = 3,          # FIRE + WATER
-    INCINERATION = 5,   # FIRE + EARTH
-    FLOOD = 6,          # WATER + EARTH
-    FIRESTORM = 9,      # FIRE + WIND
-    FREEZE = 10,        # WATER + WIND
-    SANDSTORM = 12,     # EARTH + WIND
-    APOCRYPHAL = 48     # PROFANE + HOLY
-}
-```
-
-### Variabili runtime:
-- `elem`: int - bitmask degli elementi attualmente applicati al nemico
-- `sts`: Array - lista degli status effect attivi
-
-### Funzioni principali:
-
-**`apply_element(new_element)`**
-- Applica un nuovo elemento al nemico usando bitwise OR
-- Se l'elemento non è già presente, lo aggiunge a `elem`
-- Chiama `apply_status()` per verificare se si sono formati status effect
-
-**`apply_status()`**
-- Controlla se la combinazione di elementi in `elem` corrisponde a uno status
-- Se trova uno status, lo aggiunge a `sts` e rimuove gli elementi componenti
-- Esempio: se `elem = 3` (FIRE+WATER), attiva STEAM e rimuove fuoco e acqua
-
-**`split_powers(S)`**
-- Funzione utility che scompone un numero nelle sue potenze di 2
-- Usata per ottenere gli elementi componenti di uno status
-
-**`cleanse_element(c_element)`**
-- Rimuove un elemento specifico da `elem` usando bitwise
-
-**`is_alive()`** → bool
-- Ritorna `true` se `hp > 0`
-
-**`activate_highlight()` / `deactivate_highlight()`**
-- Animano uno shader per evidenziare il nemico (usando Tween)
-- Utilizzate per feedback visivo durante selezione target
-
-### Funzionier           # Container per i pulsanti
-		├── Actions             # Pulsanti
-		└── ...
-```
----
-
 ## Turn_Manager.gd
 
-Contiene 3 array, uno con i player (party) e uno con i nemici (enemies) e l'ultimo vuoto (turn_queue) che sarà la coda del turno.
-2 segnali player_turn_started e enemy_turn_started.
-`start_combat(party_nodes, enemy_nodes)`**
+**Variabili:**
+- `party`: array per contenre i pg del player
+- `enemies`: array per contenre i nemici
+- `turn_queue`: arrey per la coda
+- `current_character`: pg o nemico che prende il turno
+
+**Funzioni:**
+**`start_combat(party_nodes, enemy_nodes)`**
 - Inizializza gli array `party` e `enemies` con i nodi passati come parametri
 - Chiama `build_turn_queue()` per creare l'ordine iniziale dei turni
 - Avvia il loop dei turni chiamando `next_turn()`
@@ -231,7 +134,7 @@ Contiene 3 array, uno con i player (party) e uno con i nemici (enemies) e l'ulti
 - Ordina l'array in ordine decrescente di velocità usando `sort_custom()`
 - Viene richiamata a inizio combattimento e ogni volta che la queue si svuota
 
-**`next_turn()`** *(async)*
+**`next_turn()`**
 - Controlla se il combattimento è terminato con `check_battle_end()`, se sì termina
 - Se `turn_queue` è vuota, ricostruisce la queue chiamando `build_turn_queue()` (nuovo ciclo)
 - Estrae il primo personaggio dalla queue con `pop_front()`
@@ -241,24 +144,13 @@ Contiene 3 array, uno con i player (party) e uno con i nemici (enemies) e l'ulti
 - Usa `await` sul segnale per attendere che il turno venga completato
 
 **`end_turn()`**
-- Semplicemente chiama `next_turn()` per passare al prossimo personaggio
+- Chiama `next_turn()` per passare al prossimo personaggio
 
-**`check_battle_end()`** → `bool`
+**`check_battle_end()`**
 - Controlla le condizioni di fine combattimento
 - Filtra party ed enemies per contare unità vive usando `is_alive()`
 - Se il party è completamente morto: stampa "GAME OVER" e ritorna `true`
 - Se tutti i nemici sono morti: stampa "VICTORY" e ritorna `true`
 - Altrimenti ritorna `false` e il combattimento continua
-
----
-
-## Action_Menu.tscn
-
-Menu con 4 opzioni che permette al giocatore di scegliere l'azione da compiere nel proprio turno.
-
-### Struttura della scena:
-
-**check_battle_end**:
-Controllo se il combat è finito, se tutto il party è morto è game over, se invece tutti i nemici sono morti è victory.
 
 ---
