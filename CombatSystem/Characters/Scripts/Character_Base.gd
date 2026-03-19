@@ -14,3 +14,9 @@ func is_alive() -> bool:
 	if hp > 0:
 		return true
 	return false
+
+func attack(target):
+	var damaged = target.hp - atk
+	target.get_damaged(damaged)
+	print("il bro sta attaccando")
+	return atk
