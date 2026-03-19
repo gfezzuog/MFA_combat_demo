@@ -5,6 +5,3 @@ extends Character_Base
 func _ready() -> void:
 	$AnimatedSprite2D.play("default")
 	pass # Replace with function body.
-
-func attack():
-	pass

@@ -1,0 +1,296 @@
+[gd_scene format=3 uid="uid://ckwy1kii8q2hg"]
+
+[ext_resource type="Texture2D" uid="uid://c1guw8x0hrhog" path="res://CombatSystem/Assets/origbig.png" id="1_lio4f"]
+[ext_resource type="Script" uid="uid://2i4g4aiohfm7" path="res://CombatSystem/Scripts/combat.gd" id="1_ur7xt"]
+[ext_resource type="PackedScene" uid="uid://dqhpteoygc7e" path="res://CombatSystem/Enemies/Scenes/Angelic_Dinosaur.tscn" id="2_ur7xt"]
+[ext_resource type="Script" uid="uid://xemcbnqc8r1g" path="res://CombatSystem/Scripts/Turn_Manager.gd" id="4_f7c1u"]
+[ext_resource type="Shader" uid="uid://byp4fwrquuamv" path="res://CombatSystem/Enemies/Shaders/highlight.gdshader" id="5_34e35"]
+[ext_resource type="PackedScene" uid="uid://cq1o6iv17uy6u" path="res://CombatSystem/Characters/Scenes/Character1.tscn" id="5_vww53"]
+[ext_resource type="PackedScene" uid="uid://dj4gfeftjf042" path="res://CombatSystem/Scenes/Action_Menu.tscn" id="7_sipja"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34e35"]
+bg_color = Color(0.31764707, 0.31764707, 0.31764707, 0.7490196)
+border_width_left = 15
+border_width_right = 15
+border_color = Color(0.31764707, 0.31764707, 0.31764707, 0.7490196)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_34e35"]
+font_size = 55
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lr6co"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sipja"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmjkh"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udm8p"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5yr0e"]
+shader = ExtResource("5_34e35")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lr6co"]
+bg_color = Color(0.31764707, 0.31764707, 0.31764707, 0.7490196)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.31764707, 0.31764707, 0.31764707, 0.7490196)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_sipja"]
+font_size = 35
+
+[node name="Combat" type="Node" unique_id=1302296181]
+script = ExtResource("1_ur7xt")
+
+[node name="TurnManager" type="Node" parent="." unique_id=1281252142]
+script = ExtResource("4_f7c1u")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1663521373]
+scale = Vector2(0.8342014, 0.83256173)
+texture = ExtResource("1_lio4f")
+centered = false
+
+[node name="TurnStatus" type="Label" parent="." unique_id=2132752580]
+top_level = true
+offset_left = 39.0
+offset_top = 24.0
+offset_right = 314.0
+offset_bottom = 114.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_34e35")
+text = "Test cose"
+label_settings = SubResource("LabelSettings_34e35")
+vertical_alignment = 1
+
+[node name="Enemies" type="Node" parent="." unique_id=1323689555]
+
+[node name="AngelicDinosaur" parent="Enemies" unique_id=2031918961 instance=ExtResource("2_ur7xt")]
+position = Vector2(480, 0)
+
+[node name="DS_torso" parent="Enemies/AngelicDinosaur" index="0" unique_id=1964796973]
+character_name = "torso"
+hp = 100
+spd = 5
+
+[node name="DS_head" parent="Enemies/AngelicDinosaur" index="1" unique_id=1403529046]
+material = SubResource("ShaderMaterial_lr6co")
+character_name = "head"
+hp = 50
+spd = 6
+
+[node name="DS_rleg" parent="Enemies/AngelicDinosaur" index="2" unique_id=1390071405]
+material = SubResource("ShaderMaterial_sipja")
+character_name = "right leg"
+hp = 50
+
+[node name="DS_lleg" parent="Enemies/AngelicDinosaur" index="3" unique_id=1973697836]
+material = SubResource("ShaderMaterial_dmjkh")
+character_name = "left leg"
+hp = 50
+
+[node name="DS_rarm" parent="Enemies/AngelicDinosaur" index="4" unique_id=1418099427]
+material = SubResource("ShaderMaterial_udm8p")
+character_name = "right arm"
+hp = 50
+
+[node name="DS_larm" parent="Enemies/AngelicDinosaur" index="5" unique_id=611394836]
+material = SubResource("ShaderMaterial_5yr0e")
+character_name = "left arm"
+hp = 50
+
+[node name="fire" type="Button" parent="." unique_id=1080760704]
+offset_left = 1749.0
+offset_top = 776.0
+offset_right = 1813.0
+offset_bottom = 807.0
+text = "FUOCO
+"
+
+[node name="water" type="Button" parent="." unique_id=290367320]
+offset_left = 1748.0
+offset_top = 826.0
+offset_right = 1812.0
+offset_bottom = 857.0
+text = "ACQUA"
+
+[node name="wind" type="Button" parent="." unique_id=1535512267]
+offset_left = 1749.0
+offset_top = 867.0
+offset_right = 1813.0
+offset_bottom = 898.0
+text = "VENTO"
+
+[node name="earth" type="Button" parent="." unique_id=792239849]
+offset_left = 1749.0
+offset_top = 905.0
+offset_right = 1813.0
+offset_bottom = 936.0
+text = "TERRA"
+
+[node name="holy" type="Button" parent="." unique_id=17783187]
+offset_left = 1749.0
+offset_top = 944.0
+offset_right = 1813.0
+offset_bottom = 975.0
+text = "SACRO"
+
+[node name="profane" type="Button" parent="." unique_id=1216762724]
+offset_left = 1749.0
+offset_top = 980.0
+offset_right = 1834.0
+offset_bottom = 1011.0
+text = "PROFANO
+"
+
+[node name="nextTurn" type="Button" parent="." unique_id=1026618264]
+offset_left = 1710.0
+offset_top = 704.0
+offset_right = 1863.0
+offset_bottom = 754.0
+theme_override_font_sizes/font_size = 30
+text = "Next Turn"
+
+[node name="Party" type="Node" parent="." unique_id=1274868404]
+
+[node name="Character1" parent="Party" unique_id=2098410848 instance=ExtResource("5_vww53")]
+position = Vector2(360, 869)
+character_name = "player 1"
+hp = 100
+spd = 1
+
+[node name="PlayerStatus1" type="Label" parent="Party/Character1" unique_id=2058434816]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = 82.0
+offset_right = 131.0
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lr6co")
+text = "Name
+HP: 100/100"
+label_settings = SubResource("LabelSettings_sipja")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+clip_text = true
+text_overrun_behavior = 4
+
+[node name="Character2" parent="Party" unique_id=881206590 instance=ExtResource("5_vww53")]
+position = Vector2(710, 869)
+character_name = "player 2"
+hp = 72
+spd = 2
+
+[node name="PlayerStatus2" type="Label" parent="Party/Character2" unique_id=22504984]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = 85.0
+offset_right = 131.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lr6co")
+text = "Name
+HP: 100"
+label_settings = SubResource("LabelSettings_sipja")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="Character3" parent="Party" unique_id=785124136 instance=ExtResource("5_vww53")]
+position = Vector2(1087, 869)
+character_name = "player 3"
+hp = 40
+spd = 3
+
+[node name="PlayerStatus3" type="Label" parent="Party/Character3" unique_id=1003421727]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = 85.0
+offset_right = 131.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lr6co")
+text = "Name
+HP: 100"
+label_settings = SubResource("LabelSettings_sipja")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="Character4" parent="Party" unique_id=402977209 instance=ExtResource("5_vww53")]
+position = Vector2(1446, 869)
+character_name = "player 4"
+hp = 35
+spd = 4
+
+[node name="PlayerStatus4" type="Label" parent="Party/Character4" unique_id=586197702]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = 85.0
+offset_right = 131.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lr6co")
+text = "Name
+HP: 100"
+label_settings = SubResource("LabelSettings_sipja")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="ActionMenu" parent="." unique_id=529131527 instance=ExtResource("7_sipja")]
+offset_left = 60.0
+offset_top = 278.0
+offset_right = 120.0
+offset_bottom = 338.0
+
+[editable path="Enemies/AngelicDinosaur"]

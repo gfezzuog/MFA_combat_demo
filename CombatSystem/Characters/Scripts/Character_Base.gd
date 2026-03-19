@@ -14,3 +14,6 @@ func is_alive() -> bool:
 	if hp > 0:
 		return true
 	return false
+
+func attack(target):
+	print("il bro sta attaccando")

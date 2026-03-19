@@ -36,13 +36,13 @@ theme_override_constants/separation = 8
 [node name="Attack" type="Button" parent="ActionSelector/VBoxContainer" unique_id=1355718648]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
-text = "Actions
+text = "Attack
 "
 
 [node name="Skills" type="Button" parent="ActionSelector/VBoxContainer" unique_id=1676803274]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
-text = "Items
+text = "Skills
 "
 
 [node name="Talk" type="Button" parent="ActionSelector/VBoxContainer" unique_id=818702348]
