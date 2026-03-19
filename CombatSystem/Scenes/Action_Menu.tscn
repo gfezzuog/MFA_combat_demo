@@ -78,7 +78,7 @@ label_settings = SubResource("LabelSettings_xy0bb")
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Actions" type="Button" parent="Target_selector/VBoxContainer/VBoxContainer" unique_id=1735142479]
+[node name="Targets" type="Button" parent="Target_selector/VBoxContainer/VBoxContainer" unique_id=1735142479]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
 text = "Actions

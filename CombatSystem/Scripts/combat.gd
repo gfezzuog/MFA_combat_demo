@@ -28,7 +28,7 @@ extends Node
 @onready var status_label_player4 = $Party/Character4/PlayerStatus4
 
 @onready var action_menu = $ActionMenu
-var current_target
+var current_target = null
 
 func _ready():
 	var party_nodes = $Party.get_children()
@@ -57,7 +57,11 @@ func _on_enemy_turn(character):
 
 func get_target(target):
 	current_target = target
-	print("target is : ", current_target)
+
+func wait_target():
+	while current_target == null:
+		await get_tree().process_frame
+	return
 
 func player_turn(character):
 	action_menu.show_menu()
@@ -69,15 +73,28 @@ func player_turn(character):
 				print(character.character_name + " attack")
 				turn_status.text = ("Turno player: " + character.character_name + "\n" +
 				character.character_name + " choose: attack")
-				character.attack(current_target)
+				await wait_target()
+				var dmg = await character.attack(current_target)
+				turn_status.text = ("Turno player: " + character.character_name + "\n" +
+				character.character_name + " ha fatto " + str(dmg) + " danni a: " + current_target.character_name)
+				await get_tree().create_timer(1.0).timeout
+				current_target= null
+				turn_manager.end_turn()
+				return
 			"skills":
 				print(character.character_name + " skills")
 				turn_status.text = ("Turno player: " + character.character_name + "\n" +
-					character.character_name + " choose: skills")
+				character.character_name + " choose: skills")
+				await get_tree().create_timer(1.0).timeout
+				turn_manager.end_turn()
+				return
 			"talk":
 				print(character.character_name + " talk")
 				turn_status.text = ("Turno player: " + character.character_name + "\n" +
 				character.character_name + " choose: talk")
+				await get_tree().create_timer(1.0).timeout
+				turn_manager.end_turn()
+				return
 			"pass":
 				print(character.character_name + " pass")
 				turn_status.text = ("Turno player: " + character.character_name + "\n" +

@@ -24,6 +24,8 @@ func hide_menu():
 	hide()
 
 func create_enemies_array():
+	target_node_array.clear()
+	target_name_array.clear()
 	if target == null:
 		return
 	for child in target.get_children():
@@ -46,7 +48,8 @@ func _on_enemy_button_pressed(enemy_name : String):
 		if target_name_array[i] == enemy_name:
 			var enemy_node = target_node_array[i]
 			combat_node.get_target(enemy_node)
-			return
+	target_selector.hide()
+	return
 
 func _on_attack_pressed() -> void:
 	target_selector.show()

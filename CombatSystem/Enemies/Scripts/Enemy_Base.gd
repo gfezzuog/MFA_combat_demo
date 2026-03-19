@@ -71,6 +71,11 @@ func apply_status() -> void:
 #func _process(delta: float) -> void:
 	#pass
 
+func get_damaged(damaged_hp):
+	print("hp before dmg: ", hp)
+	hp = damaged_hp
+	print("hp after dmg: ", hp)
+
 func activate_highlight():
 	var tween = create_tween()
 	tween.tween_property(sprite.material, "shader_parameter/highlight_strength", 1.0, 0.15)
