@@ -18,45 +18,45 @@ MFA_combat_demo/
 ├── README.md
 │
 └── CombatSystem/
-    ├── Assets/
-    │   └── icon.svg
-    │
-    ├── Characters/
-    │   ├── Assets/
-    │   │   └── 16x32 All Animations.png
-    │   ├── Scenes/
-    │   │   └── Character1.tscn
-    │   └── Scripts/
-    │       ├── Character_Base.gd      # Classe base personaggi
-    │       └── Character_1.gd
-    │
-    ├── Enemies/
-    │   ├── Assets/
-    │   │   └── DinosaurScontornated/
-    │   │       ├── Dinosauro Scontornated.png
-    │   │       └── [parti del dinosauro...]
-    │   ├── Scenes/
-    │   │   └── Angelic_Dinosaur.tscn
-    │   ├── Scripts/
-    │   │   ├── Enemy_Base.gd          # Classe base nemici
-    │   │   └── AngelicDinosaur/
-    │   │       ├── ds_head.gd
-    │   │       ├── ds_torso.gd
-    │   │       ├── ds_larm.gd
-    │   │       ├── ds_rarm.gd
-    │   │       ├── ds_lleg.gd
-    │   │       └── ds_rleg.gd
-    │   └── Shaders/
-    │       └── highlight.gdshader     # Shader per highlight nemico
-    │
-    └── Scenes/
-    │   ├── Combat.tscn                # Scena principale
-    │   └── Action_Menu.tscn
-    │
-    └── Scripts/
-        ├── combat.gd                  # Controller combattimento
-        ├── Turn_Manager.gd            # Gestore turni
-        └── Action_Menu.gd             # Controller menu azioni
+	├── Assets/
+	│   └── icon.svg
+	│
+	├── Characters/
+	│   ├── Assets/
+	│   │   └── 16x32 All Animations.png
+	│   ├── Scenes/
+	│   │   └── Character1.tscn
+	│   └── Scripts/
+	│       ├── Character_Base.gd      # Classe base personaggi
+	│       └── Character_1.gd
+	│
+	├── Enemies/
+	│   ├── Assets/
+	│   │   └── DinosaurScontornated/
+	│   │       ├── Dinosauro Scontornated.png
+	│   │       └── [parti del dinosauro...]
+	│   ├── Scenes/
+	│   │   └── Angelic_Dinosaur.tscn
+	│   ├── Scripts/
+	│   │   ├── Enemy_Base.gd          # Classe base nemici
+	│   │   └── AngelicDinosaur/
+	│   │       ├── ds_head.gd
+	│   │       ├── ds_torso.gd
+	│   │       ├── ds_larm.gd
+	│   │       ├── ds_rarm.gd
+	│   │       ├── ds_lleg.gd
+	│   │       └── ds_rleg.gd
+	│   └── Shaders/
+	│       └── highlight.gdshader     # Shader per highlight nemico
+	│
+	└── Scenes/
+	│   ├── Combat.tscn                # Scena principale
+	│   └── Action_Menu.tscn
+	│
+	└── Scripts/
+		├── combat.gd                  # Controller combattimento
+		├── Turn_Manager.gd            # Gestore turni
+		└── Action_Menu.gd             # Controller menu azioni
 ```
 </details>
 
