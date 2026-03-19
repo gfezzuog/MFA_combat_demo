@@ -11,6 +11,9 @@ border_width_bottom = 20
 border_color = Color(0.6, 0.6, 0.6, 0.6862745)
 border_blend = true
 
+[sub_resource type="LabelSettings" id="LabelSettings_xy0bb"]
+font_size = 55
+
 [node name="ActionMenu" type="Control" unique_id=529131527]
 layout_mode = 3
 anchors_preset = 0
@@ -18,7 +21,7 @@ offset_right = 60.0
 offset_bottom = 60.0
 script = ExtResource("1_baquu")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=168617115]
+[node name="ActionSelector" type="PanelContainer" parent="." unique_id=168617115]
 layout_mode = 0
 offset_left = -12.0
 offset_top = 11.0
@@ -26,35 +29,62 @@ offset_right = 296.0
 offset_bottom = 411.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_sipja")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1081495910]
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionSelector" unique_id=1081495910]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Actions" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1355718648]
+[node name="Attack" type="Button" parent="ActionSelector/VBoxContainer" unique_id=1355718648]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
 text = "Actions
 "
 
-[node name="Items" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1676803274]
+[node name="Skills" type="Button" parent="ActionSelector/VBoxContainer" unique_id=1676803274]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
 text = "Items
 "
 
-[node name="Talk" type="Button" parent="PanelContainer/VBoxContainer" unique_id=818702348]
+[node name="Talk" type="Button" parent="ActionSelector/VBoxContainer" unique_id=818702348]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 55
 text = "Talk"
 
-[node name="Pass" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1445542006]
+[node name="Pass" type="Button" parent="ActionSelector/VBoxContainer" unique_id=1445542006]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
 text = "Pass
 "
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Actions" to="." method="_on_actions_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Items" to="." method="_on_items_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Talk" to="." method="_on_talk_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Pass" to="." method="_on_pass_pressed"]
+[node name="Target_selector" type="PanelContainer" parent="." unique_id=335263518]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 11.0
+offset_right = 624.0
+offset_bottom = 411.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sipja")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Target_selector" unique_id=2060173116]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Target_selector/VBoxContainer" unique_id=1690834348]
+layout_mode = 2
+text = "Select target"
+label_settings = SubResource("LabelSettings_xy0bb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Target_selector/VBoxContainer" unique_id=45028228]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Actions" type="Button" parent="Target_selector/VBoxContainer/VBoxContainer" unique_id=1735142479]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Actions
+"
+
+[connection signal="pressed" from="ActionSelector/VBoxContainer/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionSelector/VBoxContainer/Skills" to="." method="_on_skills_pressed"]
+[connection signal="pressed" from="ActionSelector/VBoxContainer/Talk" to="." method="_on_talk_pressed"]
+[connection signal="pressed" from="ActionSelector/VBoxContainer/Pass" to="." method="_on_pass_pressed"]

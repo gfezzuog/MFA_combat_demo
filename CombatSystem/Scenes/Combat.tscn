@@ -83,36 +83,38 @@ text = "Test cose"
 label_settings = SubResource("LabelSettings_34e35")
 vertical_alignment = 1
 
-[node name="AngelicDinosaur" parent="." unique_id=2031918961 instance=ExtResource("2_ur7xt")]
+[node name="Enemies" type="Node" parent="." unique_id=1323689555]
+
+[node name="AngelicDinosaur" parent="Enemies" unique_id=2031918961 instance=ExtResource("2_ur7xt")]
 position = Vector2(480, 0)
 
-[node name="DS_torso" parent="AngelicDinosaur" index="0" unique_id=897644559]
+[node name="DS_torso" parent="Enemies/AngelicDinosaur" index="0" unique_id=1964796973]
 character_name = "torso"
 hp = 100
 spd = 5
 
-[node name="DS_head" parent="AngelicDinosaur" index="1" unique_id=1766578230]
+[node name="DS_head" parent="Enemies/AngelicDinosaur" index="1" unique_id=1403529046]
 material = SubResource("ShaderMaterial_lr6co")
 character_name = "head"
 hp = 50
 spd = 6
 
-[node name="DS_rleg" parent="AngelicDinosaur" index="2" unique_id=1249307547]
+[node name="DS_rleg" parent="Enemies/AngelicDinosaur" index="2" unique_id=1390071405]
 material = SubResource("ShaderMaterial_sipja")
 character_name = "right leg"
 hp = 50
 
-[node name="DS_lleg" parent="AngelicDinosaur" index="3" unique_id=540770468]
+[node name="DS_lleg" parent="Enemies/AngelicDinosaur" index="3" unique_id=1973697836]
 material = SubResource("ShaderMaterial_dmjkh")
 character_name = "left leg"
 hp = 50
 
-[node name="DS_rarm" parent="AngelicDinosaur" index="4" unique_id=1023279508]
+[node name="DS_rarm" parent="Enemies/AngelicDinosaur" index="4" unique_id=1418099427]
 material = SubResource("ShaderMaterial_udm8p")
 character_name = "right arm"
 hp = 50
 
-[node name="DS_larm" parent="AngelicDinosaur" index="5" unique_id=822646675]
+[node name="DS_larm" parent="Enemies/AngelicDinosaur" index="5" unique_id=611394836]
 material = SubResource("ShaderMaterial_5yr0e")
 character_name = "left arm"
 hp = 50
@@ -291,4 +293,4 @@ offset_top = 278.0
 offset_right = 120.0
 offset_bottom = 338.0
 
-[editable path="AngelicDinosaur"]
+[editable path="Enemies/AngelicDinosaur"]

@@ -19,43 +19,86 @@ shader = ExtResource("2_5s2f3")
 shader_parameter/highlight_strength = 0.0
 shader_parameter/blink_speed = 4.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8cwtj"]
+shader = ExtResource("2_5s2f3")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n31tl"]
+shader = ExtResource("2_5s2f3")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uqoog"]
+shader = ExtResource("2_5s2f3")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wyhma"]
+shader = ExtResource("2_5s2f3")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0nwt"]
+shader = ExtResource("2_5s2f3")
+shader_parameter/highlight_strength = 0.0
+shader_parameter/blink_speed = 4.0
+
 [node name="AngelicDinosaur" type="Node2D" unique_id=2031918961]
 
-[node name="DS_torso" type="Sprite2D" parent="." unique_id=897644559]
+[node name="DS_torso" type="Node2D" parent="." unique_id=1964796973]
 material = SubResource("ShaderMaterial_wao02")
 scale = Vector2(0.31898516, 0.35846773)
-texture = ExtResource("1_qof44")
-centered = false
 script = ExtResource("2_qof44")
 spd = 1
 
-[node name="DS_head" type="Sprite2D" parent="." unique_id=1766578230]
+[node name="Sprite2D" type="Sprite2D" parent="DS_torso" unique_id=485416788]
+material = SubResource("ShaderMaterial_wao02")
+texture = ExtResource("1_qof44")
+centered = false
+
+[node name="DS_head" type="Node2D" parent="." unique_id=1403529046]
 position = Vector2(-1, 0)
 scale = Vector2(0.31898516, 0.35846773)
-texture = ExtResource("2_ftbsf")
-centered = false
 script = ExtResource("5_8cwtj")
 
-[node name="DS_rleg" type="Sprite2D" parent="." unique_id=1249307547]
-scale = Vector2(0.31898516, 0.35846773)
-texture = ExtResource("3_5s2f3")
+[node name="Sprite2D" type="Sprite2D" parent="DS_head" unique_id=954317665]
+material = SubResource("ShaderMaterial_8cwtj")
+texture = ExtResource("2_ftbsf")
 centered = false
+
+[node name="DS_rleg" type="Node2D" parent="." unique_id=1390071405]
+scale = Vector2(0.31898516, 0.35846773)
 script = ExtResource("7_n31tl")
 
-[node name="DS_lleg" type="Sprite2D" parent="." unique_id=540770468]
-scale = Vector2(0.31898516, 0.35846773)
-texture = ExtResource("4_wao02")
+[node name="Sprite2D" type="Sprite2D" parent="DS_rleg" unique_id=41042164]
+material = SubResource("ShaderMaterial_n31tl")
+texture = ExtResource("3_5s2f3")
 centered = false
+
+[node name="DS_lleg" type="Node2D" parent="." unique_id=1973697836]
+scale = Vector2(0.31898516, 0.35846773)
 script = ExtResource("9_uqoog")
 
-[node name="DS_rarm" type="Sprite2D" parent="." unique_id=1023279508]
-scale = Vector2(0.31898516, 0.35846773)
-texture = ExtResource("5_0r82r")
+[node name="Sprite2D" type="Sprite2D" parent="DS_lleg" unique_id=1856594273]
+material = SubResource("ShaderMaterial_uqoog")
+texture = ExtResource("4_wao02")
 centered = false
+
+[node name="DS_rarm" type="Node2D" parent="." unique_id=1418099427]
+scale = Vector2(0.31898516, 0.35846773)
 script = ExtResource("11_wyhma")
 
-[node name="DS_larm" type="Sprite2D" parent="." unique_id=822646675]
+[node name="Sprite2D" type="Sprite2D" parent="DS_rarm" unique_id=218531536]
+material = SubResource("ShaderMaterial_wyhma")
+texture = ExtResource("5_0r82r")
+centered = false
+
+[node name="DS_larm" type="Node2D" parent="." unique_id=611394836]
 scale = Vector2(0.31898516, 0.35846773)
+script = ExtResource("13_e0nwt")
+
+[node name="Sprite2D" type="Sprite2D" parent="DS_larm" unique_id=75493965]
+material = SubResource("ShaderMaterial_e0nwt")
 texture = ExtResource("6_yfiow")
 centered = false
-script = ExtResource("13_e0nwt")

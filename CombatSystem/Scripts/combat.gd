@@ -31,7 +31,7 @@ extends Node
 
 func _ready():
 	var party_nodes = $Party.get_children()
-	var enemy_nodes = $AngelicDinosaur.get_children()
+	var enemy_nodes = $Enemies/AngelicDinosaur.get_children()
 	
 	turn_manager.player_turn_started.connect(_on_player_turn)
 	turn_manager.enemy_turn_started.connect(_on_enemy_turn)
