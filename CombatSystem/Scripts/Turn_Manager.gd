@@ -13,6 +13,8 @@ signal enemy_turn_started(character)
 func start_combat(party_nodes: Array, enemy_nodes: Array):
 	party = party_nodes
 	enemies = enemy_nodes
+	for e in enemies:
+		e.set_turn_manager(self)
 	
 	build_turn_queue()
 	next_turn()
@@ -45,8 +47,10 @@ func next_turn():
 			break
 
 	if current_character in party:
+		print("tocca al giocatore");
 		emit_signal("player_turn_started", current_character)
 	else:
+		print("tocca al nemico")
 		emit_signal("enemy_turn_started", current_character)
 
 func end_turn():
@@ -60,10 +64,10 @@ func check_battle_end() -> bool:
 	var alive_enemies: Array = [enemy_base]
 	
 	for p in party:
-		if p.is_alive:
+		if p.is_alive():
 			alive_party.append(p)
 	for e in enemies:
-		if e.is_alive:
+		if e.is_alive():
 			alive_enemies.append(e)
 	
 	if alive_party.is_empty():
@@ -73,5 +77,7 @@ func check_battle_end() -> bool:
 	if alive_enemies.is_empty():
 		print("VICTORY")
 		return true
-	
 	return false
+
+#func _on_enemy_turn_started(enemy):
+	#enemy.take_turn()

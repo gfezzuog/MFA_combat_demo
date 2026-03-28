@@ -1,11 +1,14 @@
-[Fix] Fix su alcuni comportamenti
+[Feature] Aggiunte azioni enemy con ia random
 
 Descrizione:
 Modificati alcuni metodi
 
 Modifiche:
-- CombatSystem/Characters/Scripts/Character_Base.gd
-- CombatSystem/Scripts/Action_Menu.gd
+- CombatSystem/Enemies/Scripts/AngelicDinosaur/ds_head.gd
+- CombatSystem/Enemies/Scripts/Enemy_Base.gd
+- CombatSystem/Scenes/Combat.tscn
+- CombatSystem/Scripts/Turn_Manager.gd
+- CombatSystem/Scripts/combat.gd
 
 Nuovi file:
 - N/A
@@ -14,4 +17,4 @@ Fix:
 - N/A
 
 Note:
-- N/A
+- Bug nella gestione dei turni

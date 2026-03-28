@@ -51,7 +51,8 @@ func _on_player_turn(character):
 func _on_enemy_turn(character):
 	print("Turno enemy: ", character.character_name)
 	turn_status.text = "Turno enemy: " + character.character_name
-	await next_turn_button.pressed
+	#await next_turn_button.pressed
+	await character.take_turn()
 	action_menu.hide_menu()
 	turn_manager.end_turn()
 
