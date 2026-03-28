@@ -1,0 +1,17 @@
+[Fix] Fix su alcuni comportamenti
+
+Descrizione:
+Modificati alcuni metodi
+
+Modifiche:
+- CombatSystem/Characters/Scripts/Character_Base.gd
+- CombatSystem/Scripts/Action_Menu.gd
+
+Nuovi file:
+- N/A
+
+Fix:
+- N/A
+
+Note:
+- N/A

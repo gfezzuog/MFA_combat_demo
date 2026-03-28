@@ -7,7 +7,9 @@ signal action_selected(action)
 # target per ora statico direttamente su AngeliDinosaur, da rendere eventualmente dinamico
 @onready var target : Node = get_parent().get_node("Enemies/AngelicDinosaur")
 var target_node_array : Array[Node] = []
-var target_name_array : Array[String] = []
+#var target_name_array : Array[String] = []
+
+
 
 @onready var combat_node : Node = get_parent()
 
@@ -22,30 +24,30 @@ func show_menu():
 
 func hide_menu():
 	hide()
-
 func create_enemies_array():
-	target_node_array.clear()
-	target_name_array.clear()
+	target_node_array.clear() 
+	#target_name_array.clear()
 	if target == null:
 		return
-	for child in target.get_children():
-		var character_name = child.get("character_name")
-		if character_name != null:
-			target_node_array.append(child)
-			target_name_array.append(character_name)
+	target_node_array = target.get_children()
+	#for child in target.get_children():
+		#var character_name = child.get("character_name")
+		#if character_name != null:
+			#target_node_array.append(child)
+			#target_name_array.append(character_name)
 
 func create_buttons():
 	for child in button_container.get_children():
 		child.queue_free()
-	for character_name in target_name_array:
+	for i in target_node_array:
 		var button = Button.new()
-		button.text = character_name
+		button.text = i.character_name
 		button_container.add_child(button)
-		button.pressed.connect(Callable(self, "_on_enemy_button_pressed").bind(character_name))
+		button.pressed.connect(Callable(self, "_on_enemy_button_pressed").bind(i.character_name))
 
 func _on_enemy_button_pressed(enemy_name : String):
-	for i in range(target_name_array.size()):
-		if target_name_array[i] == enemy_name:
+	for i in range(target_node_array.size()):
+		if target_node_array[i].character_name == enemy_name:
 			var enemy_node = target_node_array[i]
 			combat_node.get_target(enemy_node)
 	target_selector.hide()

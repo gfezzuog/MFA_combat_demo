@@ -15,7 +15,7 @@ func is_alive() -> bool:
 		return true
 	return false
 
-func attack(target):
+func attack(target: enemy_base):
 	var damaged = target.hp - atk
 	target.get_damaged(damaged)
 	print("il bro sta attaccando")
