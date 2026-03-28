@@ -54,7 +54,7 @@ func _on_enemy_turn(character):
 	#await next_turn_button.pressed
 	await character.take_turn()
 	action_menu.hide_menu()
-	turn_manager.end_turn()
+	#turn_manager.end_turn()
 
 func get_target(target):
 	current_target = target

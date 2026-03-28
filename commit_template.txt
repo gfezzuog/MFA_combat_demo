@@ -1,13 +1,10 @@
-[Feature] Aggiunte azioni enemy con ia random
+[Bug Fix] Gestione Turni
 
 Descrizione:
-Modificati alcuni metodi
+Fixato il bug sull'esecuzione dei turni
 
 Modifiche:
-- CombatSystem/Enemies/Scripts/AngelicDinosaur/ds_head.gd
-- CombatSystem/Enemies/Scripts/Enemy_Base.gd
-- CombatSystem/Scenes/Combat.tscn
-- CombatSystem/Scripts/Turn_Manager.gd
+
 - CombatSystem/Scripts/combat.gd
 
 Nuovi file:
@@ -17,4 +14,4 @@ Fix:
 - N/A
 
 Note:
-- Bug nella gestione dei turni
+- N/A
